@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="website_slides_course_main" inherit_id="website_slides.course_main">
+            
+            <xpath expr="//ul[hasclass('o_wslides_nav_tabs')]" position="inside">
+                <li class="nav-item">
+                    <a t-att-class="'nav-link %s' % ('active' if active_tab == 'about-tab' else '')" href="#about-tab" data-toggle="pill" role="tab" aria-controls="about-tab" t-att-aria-selected="'true' if active_tab == 'about-tab' else 'false'">
+                        Details
+                    </a>
+                </li>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_wslides_tabs_content')]" position="inside">
+                <div class="tab-pane fade" id="about-tab" role="tabpanel" aria-labelledby="about-tab">
+                    <t t-if="channel.long_description" t-raw="channel.long_description"/>
+                </div>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>
+
+<!-- <p class="mb-0 mb-xl-3" t-field="channel.course_about_html"/> -->
